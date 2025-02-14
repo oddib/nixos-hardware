@@ -298,6 +298,7 @@
         rock-4c-plus = import ./radxa/rock-4c-plus;
         kobol-helios4 = import ./kobol/helios4;
         samsung-np900x3c = import ./samsung/np900x3c;
+        samsung-galaxybook-2-pro = import ./samsung/galaxybook-2-pro;
         slimbook-hero-rpl-rtx = import ./slimbook/hero/rpl-rtx;
         starfive-visionfive-v1 = import ./starfive/visionfive/v1;
         starfive-visionfive-2 = import ./starfive/visionfive/v2;
