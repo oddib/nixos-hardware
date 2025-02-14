@@ -1,5 +1,5 @@
 { lib, pkgs, config, ... }: {
-  imports = [ ../../common/cpu/intel/alder-lake ];
+  imports = [ ../../common/cpu/intel/alder-lake/cpu-only.nix ];
 
   ###
   # Kernel module by Joshua Grisham, added features in readme
