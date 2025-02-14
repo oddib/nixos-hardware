@@ -1,12 +1,20 @@
 { lib, pkgs, config, ... }: {
-  imports = [ 
-    ./kmod.nix
-    ../../common/cpu/intel/alder-lake
-   ];
+  imports = [ ../../common/cpu/intel/alder-lake ];
+
+  boot.kernelParams = [ "i915.enable_dpcd_backlight=3" ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
+  boot.kernelModules = [ "kvm-intel" ];
+
 
   services.fprintd.enable = lib.mkDefault true;
-  hardware.samsung-galaxybook.enable = lib.mkDefault true;
-  boot.kernelParams = [ "i915.enable_dpcd_backlight=3" ];
+  
+  ###
+  # Kernel module by Joshua Grisham, added features in readme
+  # https://github.com/joshuagrisham/samsung-galaxybook-extras
+  # deactivate with:
+  # hardware.samsung-galaxybook.enable =  false;
+  # 
 
   options = {
     hardware.samsung-galaxybook.enable =
