@@ -8,11 +8,11 @@
   # hardware.samsung-galaxybook.enable =  false;
   # 
 
-  boot.extraModulePackages = [
-    (pkgs.callPackage ./kmod.nix {
-      kernel = config.boot.kernelPackages.kernel;
-    })
-  ];
+  # boot.extraModulePackages = [
+  #   (pkgs.callPackage ./kmod.nix {
+  #     kernel = config.boot.kernelPackages.kernel;
+  #   })
+  # ];
   boot.kernelModules = [ "samsung-galaxybook" "kvm-intel" ];
 
   boot.kernelParams = [ "i915.enable_dpcd_backlight=3" ];
