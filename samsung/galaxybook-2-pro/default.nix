@@ -1,5 +1,5 @@
 { lib, pkgs, config, ... }: {
-  imports = [ ../../common/cpu/intel/alder-lake ];
+  imports = [ ../../common/cpu/intel/alder-lake ./kernel.nix ];
 
   ###
   # Kernel module by Joshua Grisham, added features in readme
@@ -8,12 +8,12 @@
   # hardware.samsung-galaxybook.enable =  false;
   # 
 
-  # boot.extraModulePackages = [
-  #   (pkgs.callPackage ./kmod.nix {
-  #     kernel = config.boot.kernelPackages.kernel;
-  #   })
-  # ];
-  boot.kernelModules = [ "samsung-galaxybook" "kvm-intel" ];
+   boot.extraModulePackages = [
+     (pkgs.callPackage ./kmod.nix {
+       kernel = config.boot.kernelPackages.kernel;
+     })
+   ];
+   boot.kernelModules = [ "samsung-galaxybook" "kvm-intel" ];
 
   boot.kernelParams = [ "i915.enable_dpcd_backlight=3" ];
   boot.initrd.availableKernelModules =
